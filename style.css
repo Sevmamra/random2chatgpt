@@ -1,0 +1,1718 @@
+/* ========================================
+   Global Reset & Base Styles
+======================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #7b00ff;
+  --accent-color: #ff6a00;
+  --dark-bg: #0a0a0a;
+  --light-bg: #f5f5f5;
+  --text-color: #333;
+  --neon-blue: #00eaff;
+  --neon-pink: #ff3cac;
+  --glass-white: rgba(255, 255, 255, 0.08);
+  --shadow-neon: 0 0 20px var(--primary-color);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--light-bg);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ========================================
+   Typography Classes
+======================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary-color);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* ========================================
+   Layout Containers
+======================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 0;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ========================================
+   Glassmorphism Panels
+======================================== */
+.glass-panel {
+  background: var(--glass-white);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ========================================
+   Neon Buttons
+======================================== */
+.btn-glow {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--accent-color);
+  transition: 0.3s ease all;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--primary-color);
+}
+
+/* ========================================
+   Floating Animation
+======================================== */
+@keyframes floatY {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.floating {
+  animation: floatY 3s ease-in-out infinite;
+}
+
+/* ========================================
+   Scroll Fade-In Animation
+======================================== */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ========================================
+   Header + Navigation Bar
+======================================== */
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  padding: 20px 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar li a {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s ease;
+}
+
+.navbar li a:hover::after {
+  width: 100%;
+}
+
+.navbar li a:hover {
+  color: var(--neon-pink);
+}
+
+/* ========================================
+   Sticky Navigation
+======================================== */
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: slideDown 0.5s ease forwards;
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* ========================================
+   Hero Section
+======================================== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #0a0a0a, #1e0033);
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: var(--neon-blue);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 5px var(--neon-blue); }
+  50% { text-shadow: 0 0 20px var(--neon-blue); }
+  100% { text-shadow: 0 0 5px var(--neon-blue); }
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+}
+
+.hero .btn-glow {
+  margin-top: 2rem;
+}
+
+/* ========================================
+   Hero Background Sparkle Animation
+======================================== */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 1%, transparent 20%);
+  animation: sparkleMove 30s linear infinite;
+  z-index: 0;
+}
+
+.hero::after {
+  animation-delay: -15s;
+}
+
+@keyframes sparkleMove {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Responsive Navigation (Mobile)
+======================================== */
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dark-bg);
+    width: 100%;
+    display: none;
+  }
+
+  .navbar ul.active {
+        display: flex;
+  }
+
+  .navbar .nav-toggle {
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .navbar ul li {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   Section Reveal Scroll Effects
+======================================== */
+.section {
+  padding: 100px 0;
+  background: var(--light-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.section.alt {
+  background: #fff;
+}
+
+.section.fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Animated Cards (Floating Shadow)
+======================================== */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* ========================================
+   Image Zoom on Hover
+======================================== */
+.img-zoom-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.img-zoom-wrapper img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.img-zoom-wrapper:hover img {
+  transform: scale(1.1);
+}
+
+/* ========================================
+   Parallax Background (Simple)
+======================================== */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ========================================
+   3D Tilt Effect Cards (JS Based)
+======================================== */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  transition: none;
+}
+
+/* ========================================
+   Animated Heading Reveal
+======================================== */
+.reveal-heading {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-heading h2 {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: headingReveal 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes headingReveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* ========================================
+   Glitch Text Animation
+======================================== */
+.glitch {
+  color: white;
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  animation: glitchColor 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  background: var(--dark-bg);
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchBefore 2s infinite;
+  color: var(--accent-color);
+}
+
+.glitch::after {
+  animation: glitchAfter 2s infinite;
+  color: var(--neon-blue);
+}
+
+@keyframes glitchBefore {
+  0% { clip: rect(42px, 9999px, 44px, 0); transform: translate(-2px, -2px); }
+  50% { clip: rect(85px, 9999px, 90px, 0); transform: translate(2px, 1px); }
+  100% { clip: rect(12px, 9999px, 15px, 0); transform: translate(-1px, 0); }
+}
+
+@keyframes glitchAfter {
+  0% { clip: rect(12px, 9999px, 15px, 0); transform: translate(1px, 2px); }
+  50% { clip: rect(44px, 9999px, 50px, 0); transform: translate(-1px, -1px); }
+  100% { clip: rect(74px, 9999px, 78px, 0); transform: translate(2px, 0); }
+}
+
+/* ========================================
+   Shimmer Loading Block
+======================================== */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.5s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* ========================================
+   Custom Scrollbars
+======================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* ========================================
+   Animated SVG Icon Hover
+======================================== */
+.svg-icon {
+  width: 40px;
+  height: 40px;
+  fill: var(--text-color);
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.svg-icon:hover {
+  transform: scale(1.2) rotate(15deg);
+  fill: var(--primary-color);
+}
+
+/* ========================================
+   Gradient Border Buttons
+======================================== */
+.btn-border {
+  background: none;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(to left, var(--accent-color), var(--primary-color));
+  padding: 12px 30px;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn-border:hover {
+  background: linear-gradient(to left, var(--accent-color), var(--primary-color));
+  color: white;
+}
+
+/* ========================================
+   Animated Arrow Button
+======================================== */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-arrow svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-arrow:hover svg {
+  transform: translateX(6px);
+}
+/* ========================================
+   Masonry Grid Gallery
+======================================== */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.grid-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ========================================
+   Image Overlay Hover
+======================================== */
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-overlay img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.image-overlay .overlay-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 15px;
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.image-overlay:hover img {
+  transform: scale(1.1);
+}
+
+.image-overlay:hover .overlay-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Ripple Effect Button
+======================================== */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  background: var(--accent-color);
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ripple-btn:hover {
+  background: var(--primary-color);
+}
+
+.ripple-btn::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Trigger ripple via JS */
+.ripple-animate::after {
+  animation: ripple 0.6s linear;
+}
+
+/* ========================================
+   Circular Progress Bar
+======================================== */
+.progress-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary-color) 0%, var(--light-bg) 0%);
+}
+
+.progress-circle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* ========================================
+   Scrolling Badges
+======================================== */
+.badge-strip {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 15px;
+  background: var(--light-bg);
+  scroll-snap-type: x mandatory;
+}
+
+.badge {
+  flex: 0 0 auto;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  white-space: nowrap;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+/* Hide scrollbars */
+.badge-strip::-webkit-scrollbar {
+  display: none;
+}
+/* ========================================
+   Flip Card Animation
+======================================== */
+.flip-card {
+  background-color: transparent;
+  width: 280px;
+  height: 360px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.flip-card-front {
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.flip-card-back {
+  background: white;
+  color: var(--text-color);
+  transform: rotateY(180deg);
+  padding: 20px;
+}
+
+/* ========================================
+   Text Stroke + Neon Effect
+======================================== */
+.neon-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary-color);
+  position: relative;
+}
+
+.neon-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--primary-color);
+  filter: blur(2px);
+  z-index: -1;
+}
+
+/* ========================================
+   Morphing Blob
+======================================== */
+.blob {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: morph 8s infinite ease-in-out;
+  z-index: -10;
+  opacity: 0.7;
+}
+
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+/* ========================================
+   Rainbow Gradient Button
+======================================== */
+.rainbow-btn {
+  background: linear-gradient(
+    90deg,
+    red, orange, yellow, green, blue, indigo, violet
+  );
+  background-size: 300%;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  animation: moveGradient 4s infinite linear;
+  transition: transform 0.3s ease;
+}
+
+.rainbow-btn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* ========================================
+   Floating Icons
+======================================== */
+.float-icon {
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ========================================
+   Magnetic Button
+======================================== */
+.magnetic-btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  position: relative;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+/* ========================================
+   3D Tilt Card
+======================================== */
+.tilt-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  padding: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  transform: rotateY(8deg) rotateX(4deg);
+}
+
+/* ========================================
+   Glassmorphism Box
+======================================== */
+.glass-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+/* ========================================
+   Glow Loader
+======================================== */
+.loader-glow {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: var(--primary-color);
+  border-bottom-color: var(--accent-color);
+  animation: glowSpin 1.2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes glowSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   Frosted Sticky Nav
+======================================== */
+.frosted-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ========================================
+   Animated Counter (JS Required)
+======================================== */
+.counter-up {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  position: relative;
+  animation: counterPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes counterPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* ========================================
+   Section Separator Wave
+======================================== */
+.wave-separator {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+
+.wave-separator svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   Section Fade Overlay
+======================================== */
+.fade-top,
+.fade-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.fade-top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--light-bg), transparent);
+}
+
+.fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--light-bg), transparent);
+}
+
+/* ========================================
+   Hover Lift Button
+======================================== */
+.lift-btn {
+  background: var(--secondary-color);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lift-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(238, 9, 121, 0.3);
+}
+
+/* ========================================
+   Quote Box
+======================================== */
+.quote-box {
+  position: relative;
+  background: #fff;
+  padding: 25px 30px;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 12px;
+  font-style: italic;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.quote-box::before {
+  content: '“';
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.quote-author {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: right;
+  font-size: 1rem;
+}
+/* ========================================
+   Parallax Background Section
+======================================== */
+.parallax-section {
+  background: url('../images/parallax-bg.jpg') center center / cover no-repeat fixed;
+  padding: 100px 20px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.parallax-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+/* ========================================
+   Tooltip (Pure CSS)
+======================================== */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 140px;
+  background-color: var(--dark-bg);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Show above */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* ========================================
+   Custom Scrollbar
+======================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* ========================================
+   Glow Border Section
+======================================== */
+.glow-section {
+  border: 2px solid transparent;
+  border-radius: 15px;
+  padding: 40px;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.glow-section::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  z-index: -1;
+  border-radius: 15px;
+  filter: blur(6px);
+}
+
+/* ========================================
+   CTA Ribbon
+======================================== */
+.ribbon-cta {
+  position: relative;
+  background: var(--secondary-color);
+  padding: 20px 40px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.4rem;
+  border-radius: 0 0 30px 30px;
+}
+
+.ribbon-cta::before,
+.ribbon-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary-color);
+  z-index: -1;
+}
+
+.ribbon-cta::before {
+  left: 0;
+  border-radius: 0 0 0 100%;
+}
+
+.ribbon-cta::after {
+  right: 0;
+  border-radius: 0 0 100% 0;
+}
+
+/* ========================================
+   Pulse Shadow on Hover
+======================================== */
+.pulse-shadow:hover {
+  animation: pulseShadow 1s ease-out;
+}
+
+@keyframes pulseShadow {
+  0% {
+    box-shadow: 0 0 0 0 var(--primary-color);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(123, 0, 145, 0);
+  }
+}
+
+/* ========================================
+   Back to Top Button
+======================================== */
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  z-index: 999;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Icon inside back to top */
+#backToTop svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========================================
+   Dynamic Tag Badge
+======================================== */
+.tag-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 20px;
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(255,106,0,0.3);
+}
+/* ========================================
+   3D Push Button
+======================================== */
+.push-btn {
+  background: var(--accent-color);
+  border: none;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 0 var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.push-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 var(--primary-color);
+}
+
+/* ========================================
+   Multi-Border Card
+======================================== */
+.multi-border-card {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.multi-border-card::before,
+.multi-border-card::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: inherit;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  animation: borderGlow 4s linear infinite;
+}
+
+.multi-border-card::after {
+  filter: blur(20px);
+}
+
+@keyframes borderGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* ========================================
+   Neon Title
+======================================== */
+.neon-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff;
+  text-shadow:
+    0 0 5px var(--primary-color),
+    0 0 10px var(--primary-color),
+    0 0 20px var(--accent-color),
+    0 0 30px var(--accent-color);
+  animation: flicker 1.8s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.3;
+  }
+}
+
+/* ========================================
+   Gradient Background Hover
+======================================== */
+.gradient-hover-box {
+  background: linear-gradient(135deg, #f0f0f0, #fafafa);
+  padding: 30px;
+  border-radius: 12px;
+  transition: background 0.6s ease;
+}
+
+.gradient-hover-box:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: #fff;
+}
+
+/* ========================================
+   Icon Bounce Reveal
+======================================== */
+.icon-bounce-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: bounceIn 1.2s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   Divider with Text
+======================================== */
+.divider-with-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.divider-with-text::before,
+.divider-with-text::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider-with-text:not(:empty)::before {
+  margin-right: 1em;
+}
+
+.divider-with-text:not(:empty)::after {
+  margin-left: 1em;
+}
+
+/* ========================================
+   Vertical Card Strip
+======================================== */
+.vertical-strip-card {
+  border-left: 6px solid var(--primary-color);
+  background: #fdfdfd;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.vertical-strip-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.vertical-strip-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Hover Shadow Glow
+======================================== */
+.shadow-glow-hover {
+  transition: all 0.3s ease;
+}
+
+.shadow-glow-hover:hover {
+  box-shadow: 0 6px 20px rgba(123, 0, 145, 0.2);
+  transform: translateY(-5px);
+}
+/* ========================================
+   Dark Mode Theme Override
+======================================== */
+body.dark-mode {
+  background: var(--dark-bg);
+  color: #f0f0f0;
+}
+
+body.dark-mode .hero {
+  background: #111;
+}
+
+body.dark-mode .glass-box,
+body.dark-mode .glass-panel {
+  background: rgba(255,255,255,0.05);
+  color: #eee;
+}
+
+/* ========================================
+   Seasonal Mode: Summer Theme
+======================================== */
+body.summer-mode {
+  --primary-color: #ff7e00;
+  --accent-color: #ffd600;
+  --dark-bg: #333;
+  --light-bg: #fffbe6;
+}
+
+/* ========================================
+   Modal Overlay Style
+======================================== */
+.modal,
+.modal-showreel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10,10,10,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 2000;
+}
+
+.modal.show,
+.modal-showreel.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========================================
+   Overlay Content Box
+======================================== */
+.modal-content,
+.modal-box {
+  background: var(--light-bg);
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-content h3,
+.modal-box h3 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Close button */
+.modal .close-btn,
+.modal-showreel .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ========================================
+   Easter Egg Panel Style
+======================================== */
+.easter-egg {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: var(--accent-color);
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255,106,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  z-index: 1500;
+}
+
+.easter-egg.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========================================
+   Showreel Video Modal Styling
+======================================== */
+.modal-showreel video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ========================================
+   Thank You Screen Styles
+======================================== */
+.thank-you-screen {
+  display: none;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.thank-you-screen.show {
+  display: block;
+}
+
+/* ========================================
+   Restart Button
+======================================== */
+#restartBtn {
+  margin-top: 30px;
+}
+
+/* ========================================
+   Seasonal Toggle Widget
+======================================== */
+.season-widget {
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 10px;
+  border-radius: 30px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ========================================
+   Language Selector Styles
+======================================== */
+.lang-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 1500;
+}
+
+.lang-btn {
+  background: var(--glass-white);
+  border: none;
+  color: var(--text-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ========================================
+   Settings Panel Sliding Drawer
+======================================== */
+.settings-panel {
+  position: fixed;
+  top: 50%;
+  right: -280px;
+  transform: translateY(-50%);
+  background: var(--glass-white);
+  padding: 20px;
+  border-radius: 12px 0 0 12px;
+  transition: right 0.4s ease;
+  z-index: 1600;
+}
+
+.settings-panel.open {
+  right: 0;
+}
+
+/* ========================================
+   Chat Widget Expand
+======================================== */
+.chat-widget {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+}
+
+#chatWidget button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255,106,0,0.4);
+}
+
+/* ========================================
+   Feedback Slide-In Panel
+======================================== */
+#feedbackSlide {
+  position: fixed;
+  bottom: 40px;
+  left: -300px;
+  background: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  transition: left 0.4s ease;
+  z-index: 1500;
+}
+
+#feedbackSlide.show {
+  left: 20px;
+}
+
+/* ========================================
+   Promo Banner Styles
+======================================== */
+#promoBanner {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-color);
+  color: white;
+  padding: 12px 40px;
+  border-radius: 0 0 0 50px;
+  display: none;
+  z-index: 1500;
+}
+
+#promoBanner.show {
+  display: block;
+}
+
+/* ========================================
+   Responsive Enhancements
+======================================== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .section-heading { font-size: 2rem; }
+  .glass-panel { padding: 1rem; }
+}
+
+/* ========================================
+   Final Developer Hotkey Panel
+======================================== */
+.dev-hotkeys {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: var(--dark-bg);
+  color: white;
+  font-size: 0.85rem;
+  padding: 8px;
+  opacity: 0.6;
+  z-index: 1500;
+}
