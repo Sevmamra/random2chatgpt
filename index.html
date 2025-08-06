@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeonVerse - The Digital Explorers Hub</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <div class="glass-overlay"></div>
+
+  <!-- HEADER -->
+  <header class="neon-header" data-aos="fade-down">
+    <div class="container">
+      <h1 class="logo">⚡ NeonVerse</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#team" class="nav-link">Team</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="home">
+    <div class="hero-content" data-aos="zoom-in">
+      <h2 class="hero-title">
+        <span class="glitch" data-text="Unleash The Future.">Unleash The Future.</span>
+      </h2>
+      <p class="hero-subtext" data-aos="fade-up" data-aos-delay="300">
+        We’re not an agency. We’re a movement of digital rebels exploring the neon cosmos of innovation.
+      </p>
+      <a href="#features" class="btn-glow" data-aos="fade-up" data-aos-delay="500">Explore Features</a>
+    </div>
+
+    <div class="orb-planet" data-aos="fade-left" data-aos-delay="800">
+      <img src="assets/planet.svg" alt="Futuristic Planet" />
+    </div>
+
+    <canvas id="starCanvas"></canvas>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <h2 class="section-heading" data-aos="fade-right">⚙️ Core Modules</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+          <h3>⚡ Real-Time Animations</h3>
+          <p>Lightning-fast canvas effects powered by WebGL and GSAP magic.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+          <h3>🌐 Modular Architecture</h3>
+          <p>Smart JS components and lazy-loaded assets for faster performance.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+          <h3>🎮 Gamified UI</h3>
+          <p>Interactive micro-animations & audio-driven feedback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <h2 class="section-heading" data-aos="fade-left">🧠 The Think Tank</h2>
+      <div class="team-grid">
+        <div class="team-member" data-aos="flip-left" data-aos-delay="100">
+          <img src="assets/team1.jpg" alt="Zara Flux" />
+          <h4>Zara Flux</h4>
+          <p>AI Strategist</p>
+        </div>
+        <div class="team-member" data-aos="flip-left" data-aos-delay="200">
+          <img src="assets/team2.jpg" alt="Neo Orion" />
+          <h4>Neo Orion</h4>
+          <p>XR Developer</p>
+        </div>
+        <div class="team-member" data-aos="flip-left" data-aos-delay="300">
+          <img src="assets/team3.jpg" alt="Luna Pulse" />
+          <h4>Luna Pulse</h4>
+          <p>Design Sorceress</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-heading" data-aos="fade-up">🚀 Stellar Works</h2>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="fade-right" data-aos-delay="100">
+          <img src="assets/project1.jpg" alt="Project One" />
+          <div class="project-info">
+            <h4>Holo UI Dashboard</h4>
+            <p>AI-powered analytics platform with glowing UI and particle motion.</p>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/project2.jpg" alt="Project Two" />
+          <div class="project-info">
+            <h4>NeonVerse VR Portal</h4>
+            <p>Built an immersive world for creators using A-Frame + WebXR.</p>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-left" data-aos-delay="300">
+          <img src="assets/project3.jpg" alt="Project Three" />
+          <div class="project-info">
+            <h4>Galactic BioLink</h4>
+            <p>Bio link generator app with real-time preview & 3D transitions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOADING SCREEN -->
+<div class="preloader" id="preloader">
+  <div class="loader-logo">NeonVerse</div>
+  <div class="glow-ring"></div>
+</div>
+
+<!-- TEXT-SPLIT EFFECT SECTION -->
+<section class="text-fx-section">
+  <div class="container">
+    <h2 class="text-split" data-aos="fade-up">
+      <span>D</span><span>i</span><span>g</span><span>i</span><span>t</span><span>a</span><span>l</span>
+      <span>&nbsp;</span>
+      <span>A</span><span>w</span><span>a</span><span>k</span><span>e</span><span>n</span><span>i</span><span>n</span><span>g</span>
+    </h2>
+    <p class="text-sub" data-aos="fade-up" data-aos-delay="300">
+      We combine code with cosmic creativity to craft unforgettable experiences.
+    </p>
+  </div>
+</section>
+
+<!-- SVG WAVE BACKGROUND -->
+<section class="wave-section">
+  <svg class="neon-wave" viewBox="0 0 1440 320">
+    <path fill="#7b0091" fill-opacity="1"
+      d="M0,64L60,74.7C120,85,240,107,360,106.7C480,107,600,85,720,96C840,107,960,149,1080,176C1200,203,1320,213,1380,218.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+    </path>
+  </svg>
+</section>
+
+<!-- PARALLAX CALL OUT SECTION -->
+<section class="parallax-cta">
+  <div class="parallax-content" data-speed="2">
+    <h2 data-aos="fade-up">Join The Revolution</h2>
+    <p data-aos="fade-up" data-aos-delay="200">Be a creator of the future, not just a consumer of the present.</p>
+    <a href="#contact" class="btn-glow" data-aos="fade-up" data-aos-delay="400">Sign Me Up</a>
+  </div>
+  <div class="parallax-layers">
+    <img src="assets/layer1.svg" class="layer" data-depth="0.2" alt="Layer 1" />
+    <img src="assets/layer2.svg" class="layer" data-depth="0.4" alt="Layer 2" />
+    <img src="assets/layer3.svg" class="layer" data-depth="0.6" alt="Layer 3" />
+  </div>
+</section>
+
+<!-- BACKGROUND SVG STARS -->
+<svg class="starfield" viewBox="0 0 800 600" preserveAspectRatio="none">
+  <circle cx="100" cy="100" r="1" fill="#fff" />
+  <circle cx="200" cy="300" r="1.2" fill="#fff" />
+  <circle cx="400" cy="150" r="1.5" fill="#fff" />
+  <circle cx="600" cy="250" r="1.1" fill="#fff" />
+  <circle cx="750" cy="100" r="0.8" fill="#fff" />
+  <circle cx="50" cy="500" r="1" fill="#fff" />
+  <circle cx="700" cy="550" r="1.3" fill="#fff" />
+</svg>
+
+<!-- ANIMATED QUOTE SECTION -->
+<section class="quote-section">
+  <div class="container">
+    <blockquote data-aos="zoom-in">
+      “Code is the language. Imagination is the fuel. Future is the destination.”
+    </blockquote>
+    <p class="quote-author" data-aos="fade-in" data-aos-delay="300">- NeonVerse Manifesto</p>
+  </div>
+</section>
+
+<!-- MODAL CONTACT TRIGGER -->
+<div class="fixed-fab">
+  <button id="openModal" aria-label="Contact us">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+      viewBox="0 0 24 24" stroke-width="2" width="28" height="28">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  </button>
+</div>
+
+<!-- MODAL STRUCTURE -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h3>✨ Send Us A Signal</h3>
+    <form class="modal-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Your message here..." required></textarea>
+      <button type="submit" class="btn-glow">Transmit</button>
+    </form>
+  </div>
+</div>
+
+  <!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <h2 class="section-heading" data-aos="fade-right">❓ Frequently Asked Questions</h2>
+
+    <div class="faq-item" data-aos="fade-up">
+      <button class="faq-question">What is NeonVerse?</button>
+      <div class="faq-answer">
+        <p>NeonVerse is a futuristic digital studio that blends imagination with innovation, helping brands and creators explore their full potential through immersive experiences.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+      <button class="faq-question">Do you build full-stack applications?</button>
+      <div class="faq-answer">
+        <p>Yes, we design, develop and deploy highly scalable, animated, and smart applications using modern stacks and Web3-compatible infrastructure.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+      <button class="faq-question">Can I collaborate with you as a creator?</button>
+      <div class="faq-answer">
+        <p>Absolutely! We love collaborating with talented individuals and content creators to build powerful and viral digital projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFINITE MARQUEE SECTION -->
+<section class="marquee-section" data-aos="fade-in">
+  <div class="marquee-track">
+    <p>
+      🚀 Creativity &nbsp;&nbsp;&nbsp; 🌌 Innovation &nbsp;&nbsp;&nbsp; 🎨 Design &nbsp;&nbsp;&nbsp; 🧠 Strategy &nbsp;&nbsp;&nbsp; 👾 Tech &nbsp;&nbsp;&nbsp; 📈 Growth &nbsp;&nbsp;&nbsp;
+    </p>
+  </div>
+</section>
+
+<!-- COUNTERS SECTION -->
+<section class="counters-section" id="stats">
+  <div class="container">
+    <h2 class="section-heading" data-aos="fade-up">📊 Our Galactic Stats</h2>
+    <div class="counters-grid">
+      <div class="counter-box" data-aos="zoom-in" data-aos-delay="100">
+        <svg class="counter-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+        <h3 class="counter" data-count="240">0</h3>
+        <p>Clients Globally</p>
+      </div>
+
+      <div class="counter-box" data-aos="zoom-in" data-aos-delay="200">
+        <svg class="counter-icon" viewBox="0 0 24 24"><path d="M3 3h18v18H3V3z" /></svg>
+        <h3 class="counter" data-count="1200">0</h3>
+        <p>Projects Launched</p>
+      </div>
+
+      <div class="counter-box" data-aos="zoom-in" data-aos-delay="300">
+        <svg class="counter-icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /></svg>
+        <h3 class="counter" data-count="75">0</h3>
+        <p>Neon Creators</p>
+      </div>
+
+      <div class="counter-box" data-aos="zoom-in" data-aos-delay="400">
+        <svg class="counter-icon" viewBox="0 0 24 24"><path d="M12 2C6 2 2 6 2 12s4 10 10 10 10-4 10-10S18 2 12 2z" /></svg>
+        <h3 class="counter" data-count="98000">0</h3>
+        <p>Lines of Code</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 404 SPACE ERROR SECTION -->
+<section class="error-404" id="notfound">
+  <div class="container">
+    <div class="error-content" data-aos="fade-up">
+      <img src="assets/alien.svg" alt="404 alien lost" class="alien-illustration" />
+      <h2>404 - Lost in Space!</h2>
+      <p>The page you are looking for doesn't exist in this galaxy.</p>
+      <a href="#home" class="btn-glow">Back to Earth</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL COSMIC CTA -->
+<section class="cosmic-cta">
+  <div class="container">
+    <h2 class="final-pitch" data-aos="zoom-in">Let’s Build the Future, Together.</h2>
+    <a href="#contact" class="btn-glow huge-btn" data-aos="fade-up" data-aos-delay="200">Start My Journey</a>
+  </div>
+</section>
+
+  <!-- BACKGROUND CANVAS: LIGHT SPEED STARFIELD -->
+<div class="lightspeed-container">
+  <canvas id="lightspeedCanvas"></canvas>
+</div>
+
+<!-- TECH SPECS FLOATERS SECTION -->
+<section class="tech-specs" id="techspecs" aria-labelledby="techspecs-heading">
+  <div class="container">
+    <h2 id="techspecs-heading" class="section-heading" data-aos="fade-right">⚙️ Tech Specs</h2>
+    <div class="spec-card" data-aos="fade-up" data-aos-delay="100">
+      <h4>WebGL Visual Engine</h4>
+      <p>Real-time shader effects, dynamic mesh morphing, tone-mapped glow.</p>
+    </div>
+    <div class="spec-card" data-aos="fade-up" data-aos-delay="200">
+      <h4>GSAP Timeline Control</h4>
+      <p>Frame-perfect animation control & scroll-sync experiences.</p>
+    </div>
+    <div class="spec-card" data-aos="fade-up" data-aos-delay="300">
+      <h4>Three.js Builds</h4>
+      <p>Interactive 3D UIs and device-aware models that run anywhere.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSIBILITY & SKIP LINK -->
+<a href="#home" class="skip-link">Skip to top</a>
+
+<!-- DARK MODE TOGGLE -->
+<div class="dark-mode-toggle" aria-label="Switch color theme">
+  <input type="checkbox" id="toggleMode" />
+  <label for="toggleMode">🌙 / ⚡</label>
+</div>
+
+<!-- HIDDEN EASTER EGG ELEMENT -->
+<div class="easter-egg" id="easterEgg">
+  <p>You found the Neon Egg 🥚✨ — Stay tuned for secret bonuses!</p>
+</div>
+
+<!-- AUDIO VISUALIZER SECTION -->
+<section class="audio-visualizer">
+  <h2 class="section-heading" data-aos="fade-up">🎵 Audio Visualizer</h2>
+  <canvas id="audioCanvas"></canvas>
+</section>
+
+<!-- MORE DETAILS SECTION -->
+<section class="more-details" data-aos="fade-in">
+  <div class="container">
+    <h2 class="section-heading">Deep Dive Into Modules</h2>
+    <ul class="detail-list">
+      <li data-aos="fade-left" data-aos-delay="100">Front-end shader blending and post-processing.</li>
+      <li data-aos="fade-left" data-aos-delay="200">Serverless backend: API + Webhook integrations.</li>
+      <li data-aos="fade-left" data-aos-delay="300">Static build pipelines with incremental hydration.</li>
+      <li data-aos="fade-left" data-aos-delay="400">AI‑driven content generation & workflow automation.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SPACESHIP LAUNCH ANIM SECTION -->
+<section class="launch-section">
+  <div class="container">
+    <button class="launch-btn" id="launchBtn">🚀 Launch Showreel</button>
+  </div>
+</section>
+
+  <!-- SHOWREEL MODAL -->
+<div id="showreelModal" class="modal-showreel">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close" id="closeShowreel">&times;</button>
+    <video id="showreelVideo" controls preload="metadata">
+      <source src="assets/neonverse_showreel.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<!-- TIMELINE NAVIGATION -->
+<nav class="timeline-nav" aria-label="Page sections">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#features">Modules</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ACCESSIBILITY INFO PANEL -->
+<div class="access-panel" id="accessPanel" aria-live="polite">
+  <p>Use arrow keys to navigate sections. Press 'M' to toggle dark/light mode.</p>
+</div>
+
+<!-- AUTO-BACK TO TOP BUTTON -->
+<button class="back-to-top" id="backToTop">⬆️ Top</button>
+
+<!-- SECRET MODE CHEAT CODE -->
+<div class="cheat-code-ui" id="cheatUI">
+  <p>Enter secret code:</p>
+  <input type="text" id="secretInput" placeholder="Type...">
+</div>
+
+<!-- VISUAL GLITCH FOOTER EFFECT -->
+<footer class="glitch-footer">
+  <div class="glitch-text" aria-hidden="true">NeonVerse ©</div>
+  <div class="glitch-text copy">NeonVerse ©</div>
+</footer>
+
+  <!-- CREDIT ROLL SECTION -->
+<section class="credit-roll">
+  <div class="container">
+    <h2 data-aos="fade-up">Credits & Contributors</h2>
+    <div class="credits-list" data-aos="fade-up" data-aos-delay="200">
+      <p>Lead Architect: Solaris Code</p>
+      <p>Visual FX: Lyra Sparks</p>
+      <p>Motion & Parallax: Orion Flux</p>
+      <p>Front-end Logic: Vega Script</p>
+      <p>Accessibility & Testing: Astra Well</p>
+      <p>Community Lead: Nova Pulse</p>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE METRICS -->
+<section class="perf-metrics" id="performance">
+  <div class="container">
+    <h2 data-aos="fade-right">⚡ Performance Benchmarks</h2>
+    <ul class="metrics-list">
+      <li data-aos="fade-up" data-aos-delay="100"><strong>Load:</strong> <span id="perfLoad">‑</span> ms</li>
+      <li data-aos="fade-up" data-aos-delay="200"><strong>FPS:</strong> <span id="perfFPS">‑</span> fps</li>
+      <li data-aos="fade-up" data-aos-delay="300"><strong>Memory:</strong> <span id="perfMem">‑</span> MB</li>
+    </ul>
+  </div>
+</section>
+
+<!-- VOICE COMMAND TRIGGER -->
+<div class="voice-trigger" id="voiceTrigger" aria-label="Activate voice mode">
+  <button aria-pressed="false" id="voiceBtn">🎙️ Voice Mode</button>
+</div>
+
+<!-- HIDDEN SPARK ANIMATION -->
+<div class="spark-container" id="sparkContainer">
+  <!-- dynamic sparks triggered via JS -->
+</div>
+
+<!-- CHAT WIDGET ACCESS -->
+<div class="chat-widget" id="chatWidget">
+  <button id="chatToggle">💬</button>
+</div>
+
+<!-- FOOTER EXTRA NOTES -->
+<div class="footer-notes">
+  <p data-aos="fade-in" data-aos-delay="100">Built with love, code & cosmic caffeine.</p>
+  <p data-aos="fade-in" data-aos-delay="200">Need support? Write to support@neonverse.io</p>
+</div>
+
+  <!-- LANGUAGE SELECTOR MODULE -->
+<div class="lang-selector" id="langSelector">
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="es">ES</button>
+  <button class="lang-btn" data-lang="hi">HI</button>
+</div>
+
+<!-- SETTINGS PANEL -->
+<div class="settings-panel" id="settingsPanel">
+  <h3>Settings ⚙️</h3>
+  <div class="setting-item">
+    <label for="animToggle">Enable Animations</label>
+    <input type="checkbox" id="animToggle" checked />
+  </div>
+  <div class="setting-item">
+    <label for="soundToggle">Sound Effects</label>
+    <input type="checkbox" id="soundToggle" />
+  </div>
+  <div class="setting-item">
+    <label for="easterEggToggle">Show Easter Egg</label>
+    <input type="checkbox" id="easterEggToggle" />
+  </div>
+</div>
+
+<!-- MODULE DEMO PREVIEW CARDS -->
+<section class="module-preview">
+  <div class="container">
+    <h2 class="section-heading" data-aos="fade-up">Live Module Previews</h2>
+    <div class="module-grid">
+      <div class="module-card" data-aos="zoom-in" data-aos-delay="100">
+        <h4>Shader Playground</h4>
+        <div class="module-frame" data-frame="shader"></div>
+      </div>
+      <div class="module-card" data-aos="zoom-in" data-aos-delay="200">
+        <h4>Particle Lab</h4>
+        <div class="module-frame" data-frame="particles"></div>
+      </div>
+      <div class="module-card" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Voice FX Tester</h4>
+        <div class="module-frame" data-frame="voicefx"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CALLBACK CTA -->
+<section class="footer-cta">
+  <div class="container">
+    <p>Want a private demo or customized module?</p>
+    <button class="btn-glow" id="demoRequestBtn">Request Demo</button>
+  </div>
+</section>
+
+<!-- PRIVACY NOTICE BANNER -->
+<div class="privacy-banner" id="privacyBanner">
+  <p>We use cookies & data only to personalize your experience.</p>
+  <button id="acceptPrivacy">Accept</button>
+</div>
+
+  <!-- LAZY‑LOADED MEDIA GALLERY -->
+<section class="media-gallery" id="gallery">
+  <div class="container">
+    <h2 class="section-heading" data-aos="fade-up">Visual Gallery</h2>
+    <div class="gallery-grid">
+      <img data-src="assets/gallery1.jpg" alt="Gallery One" class="lazy-img" />
+      <img data-src="assets/gallery2.jpg" alt="Gallery Two" class="lazy-img" />
+      <img data-src="assets/gallery3.jpg" alt="Gallery Three" class="lazy-img" />
+      <img data-src="assets/gallery4.jpg" alt="Gallery Four" class="lazy-img" />
+      <img data-src="assets/gallery5.jpg" alt="Gallery Five" class="lazy-img" />
+      <img data-src="assets/gallery6.jpg" alt="Gallery Six" class="lazy-img" />
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL‑SYNC NAV BAR HIGHLIGHT -->
+<script type="text/template" id="scrollNavTemplate">
+  <!-- script-based nav marker logic placeholder -->
+</script>
+
+<!-- HOVER‑SECRET TOOLTIP TRIGGERS -->
+<div class="secret-tooltip-container">
+  <span class="hover-secret" data-tooltip="Cosmic Surprise!">Hidden?</span>
+  <span class="hover-secret" data-tooltip="Easter Egg Here :)">Peek Here</span>
+</div>
+
+<!-- USER FEEDBACK SLIDE IN -->
+<div class="feedback-slide" id="feedbackSlide">
+  <p>“NeonVerse changed the way we think about digital — absolute game-changer!”</p>
+  <button id="closeFeedback">✖️</button>
+</div>
+
+<!-- SUBSCRIBE PROMO BANNER -->
+<div class="promo-banner" id="promoBanner">
+  <p>Subscribe to our Neon Pulse for early access to new modules.</p>
+  <button id="subBtn">Subscribe</button>
+</div>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" data-aos="zoom-in">
+    <div class="container cta-box">
+      <h2>✨ Ready to Launch Your Digital Journey?</h2>
+      <p>Join the tribe of futuristic brands and creators today!</p>
+      <a href="#contact" class="btn-glow big">Connect With Us</a>
+    </div>
+
+    <div class="cta-planet-bg">
+      <img src="assets/planet-glow.svg" alt="Glow Planet" />
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-heading" data-aos="fade-right">📡 Get In Touch</h2>
+      <div class="contact-wrapper">
+        <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+          <div class="form-group">
+            <input type="text" name="name" required />
+            <label>Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="email" required />
+            <label>Email</label>
+          </div>
+
+          <div class="form-group">
+            <textarea name="message" rows="5" required></textarea>
+            <label>Your Message</label>
+          </div>
+
+          <button type="submit" class="btn-glow">Send Message</button>
+        </form>
+
+        <div class="contact-meta" data-aos="fade-left" data-aos-delay="300">
+          <p><strong>Email:</strong> contact@neonverse.io</p>
+          <p><strong>Location:</strong> Virtual Orbit #42, Web Universe</p>
+          <p><strong>Instagram:</strong> @neonverse</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANVAS PARTICLES -->
+  <div class="particles-container">
+    <canvas id="particlesCanvas"></canvas>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <h3>NeonVerse</h3>
+        <p>Powered by Code, Fueled by Cosmos.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Top</a></li>
+        <li><a href="#features">Modules</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Connect</a></li>
+      </ul>
+      <p class="footer-copy">&copy; <span id="year"></span> NeonVerse. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Custom Script -->
+  <script src="main.js"></script>
+</body>
+</html>
+
+<!-- OFFLINE FALLBACK NOTIFICATION -->
+<div class="offline-notice" id="offlineNotice">
+  <p>You’re offline! Some immersive features may be disabled.</p>
+</div>
+
+<!-- DEVELOPER HOTKEY INFO -->
+<div class="dev-hotkeys" id="devHotkeys">
+  <p>Press 'H' for help panel, 'R' to reset animations, 'C' to toggle cheats.</p>
+</div>
+
+<!-- FINAL GLITCH LOOP ANIMATION -->
+<div class="glitch-loop" id="glitchLoop">
+  <span class="glitch-char" data-char="N">N</span>
+  <span class="glitch-char" data-char="E">E</span>
+  <span class="glitch-char" data-char="O">O</span>
+  <span class="glitch-char" data-char="N">N</span>
+  <span class="glitch-char" data-char="V">V</span>
+  <span class="glitch-char" data-char="E">E</span>
+  <span class="glitch-char" data-char="R">R</span>
+  <span class="glitch-char" data-char="S">S</span>
+  <span class="glitch-char" data-char="E">E</span>
+</div>
+
+<!-- ACCESSIBILITY WIDGET SUMMER MODE -->
+<div class="season-widget" id="seasonWidget">
+  <label>Summer Mode 🌞</label>
+  <input type="checkbox" id="seasonToggle" />
+</div>
+
+<!-- THANK YOU SCREEN -->
+<section class="thank-you-screen" id="thankYou">
+  <div class="container">
+    <h2 data-aos="fade-in">✨ Thank You, Cosmic Voyager!</h2>
+    <p data-aos="fade-in" data-aos-delay="200">
+      You’ve reached the edge of NeonVerse — let's create the infinite next.
+    </p>
+    <button id="restartBtn" class="btn-glow" data-aos="fade-up" data-aos-delay="400">Restart Experience</button>
+  </div>
+</section>
